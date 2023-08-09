@@ -4,7 +4,7 @@ import 'package:nazzbuzz/Settings/about.dart';
 import 'package:nazzbuzz/Settings/feedback.dart';
 import 'package:nazzbuzz/Settings/reset/reset1.dart';
 import 'package:nazzbuzz/Settings/terms.dart';
-import 'package:share_plus/share_plus.dart';
+// import 'package:share_plus/share_plus.dart';
 
 class SettingsMainScreen extends StatefulWidget {
   const SettingsMainScreen({super.key});
@@ -16,13 +16,13 @@ class SettingsMainScreen extends StatefulWidget {
 class _SettingsMainScreenState extends State<SettingsMainScreen> {
   @override
   Widget build(BuildContext context) {
-    _onShare(context) async {
-      final box = context.findRenderObject() as RenderBox?;
-      await Share.share(
-          'https://play.google.com/store/apps/details?id=com.example.nazzbuzz',
-          subject: '',
-          sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
-    }
+    // _onShare(context) async {
+    //   final box = context.findRenderObject() as RenderBox?;
+    //   await Share.share(
+    //       'https://play.google.com/store/apps/details?id=com.example.nazzbuzz',
+    //       subject: '',
+    //       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
+    // }
 
     return Scaffold(
       backgroundColor: Colors.black,
@@ -159,7 +159,7 @@ class _SettingsMainScreenState extends State<SettingsMainScreen> {
                 style: TextStyle(color: Colors.white, fontSize: 20),
               ),
               onTap: () {
-                _onShare(context);
+                // _onShare(context);
               },
             ),
           ),
