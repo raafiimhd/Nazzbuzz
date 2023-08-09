@@ -11,6 +11,8 @@ import '../model/playlist_model/uniquelist.dart';
 // ----playlistBodyNotifier for rebuilding the playlist body
 ValueNotifier<List<UniqueList>> playListNotifier = ValueNotifier([]);
 
+List name = [];
+
 Future<void> addPlayList(String name) async {
   playListNotifier.value.add(UniqueList(name: name));
   Box<AppPlaylist> playlistDb = await Hive.openBox<AppPlaylist>('playlists');
