@@ -105,7 +105,7 @@ class SearchControllerT extends GetxController {
                     children: [
                       FavIcon(
                         currentSong: searchdata.value[index],
-                        isFav: favaroList.value.contains(
+                        isFav:globalController. favaroList.value.contains(
                           searchdata.value[index],
                         ),
                       ),
@@ -205,7 +205,7 @@ class SearchControllerT extends GetxController {
                     children: [
                       FavIcon(
                         currentSong: globalController.allsongs[index],
-                        isFav: favaroList.value.contains(
+                        isFav: globalController.favaroList.value.contains(
                           globalController.allsongs[index],
                         ),
                       ),

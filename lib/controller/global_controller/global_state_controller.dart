@@ -2,6 +2,7 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nazzbuzz/model/allsongs_model/db_model.dart';
+import 'package:nazzbuzz/model/mostly_played_model/mostly_played.dart';
 import 'package:nazzbuzz/model/playlist_model/playlist_model.dart';
 
 
@@ -15,5 +16,6 @@ List<int> ids = [];
 List<AppPlaylist> playlists = [];
 List<SongInfo> allsongs=[];
 late TabController tabController;
-  
+ValueNotifier<List<SongInfo>> favaroList = ValueNotifier([]);
+ValueNotifier<List<MostlyPlayed>> MostlyPlayedNotifier = ValueNotifier([]);
 }

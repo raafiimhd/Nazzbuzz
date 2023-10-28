@@ -4,18 +4,18 @@ import 'package:nazzbuzz/model/allsongs_model/db_model.dart';
 import 'package:nazzbuzz/model/fav_model/fav_model.dart';
 import 'package:nazzbuzz/utils/const.dart';
 
-ValueNotifier<List<SongInfo>> favaroList = ValueNotifier([]);
+
 
 Future<void> addFavourite(SongInfo songs) async {
-  favaroList.value.insert(0, songs);
+  globalController.favaroList.value.insert(0, songs);
   Box<Favmodel> favDb = await Hive.openBox<Favmodel>('Favaourites');
   Favmodel temp = Favmodel(id: songs.id);
   await favDb.add(temp);
-  favaroList.notifyListeners();
+  globalController.favaroList.notifyListeners();
 }
 
 getFAvourite() async {
-  favaroList.value.clear();
+  globalController.favaroList.value.clear();
   List<Favmodel> favSongCheck = [];
   final favDb = await Hive.openBox<Favmodel>('Favaourites');
   favSongCheck.addAll(favDb.values);
@@ -23,7 +23,7 @@ getFAvourite() async {
     int count = 0;
     for (var songs in globalController. allsongs) {
       if (favs.id == songs.id) {
-        favaroList.value.add(songs);
+        globalController.favaroList.value.add(songs);
         break;
       } else {
         count++;
@@ -34,11 +34,11 @@ getFAvourite() async {
       favDb.delete(key);
     }
   }
-  favaroList.notifyListeners();
+  globalController.favaroList.notifyListeners();
 }
 
 removeFavourite(SongInfo song) async {
-  favaroList.value.remove(song);
+  globalController.favaroList.value.remove(song);
   List<Favmodel> templist = [];
   Box<Favmodel> favdb = await Hive.openBox('Favaourites');
   templist.addAll(favdb.values);
@@ -49,7 +49,7 @@ removeFavourite(SongInfo song) async {
       break;
     }
   }
-  favaroList.notifyListeners();
+  globalController.favaroList.notifyListeners();
   getFAvourite();
 }
 

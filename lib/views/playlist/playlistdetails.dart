@@ -134,7 +134,7 @@ class ListingScreen extends StatelessWidget {
                                       trailing1: FavIcon(
                                         currentSong:
                                             value[idx].container[index],
-                                        isFav: favaroList.value.contains(
+                                        isFav: globalController.favaroList.value.contains(
                                             value[idx].container[index]),
                                       ),
                                       trailing2: IconButton(

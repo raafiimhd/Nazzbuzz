@@ -25,13 +25,13 @@ class FavouriteScreen extends StatelessWidget {
   void onSongClicked(int index) {
     globalController.player.stop();
     List<Audio> audiolist = [];
-    for (int i = 0; i < favaroList.value.length; i++) {
+    for (int i = 0; i < globalController.favaroList.value.length; i++) {
       audiolist.add(Audio.file(
-        favaroList.value[i].uri.toString(),
+        globalController.favaroList.value[i].uri.toString(),
         metas: Metas(
-          title: favaroList.value[i].title,
-          artist: favaroList.value[i].artist,
-          id: favaroList.value[i].id.toString(),
+          title: globalController.favaroList.value[i].title,
+          artist: globalController.favaroList.value[i].artist,
+          id: globalController.favaroList.value[i].id.toString(),
         ),
       ));
     }
@@ -80,8 +80,8 @@ class FavouriteScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 9.0, right: 9),
               child: ValueListenableBuilder(
-                valueListenable: favaroList,
-                builder: (context, value, child) => (favaroList.value.isEmpty)
+                valueListenable: globalController.favaroList,
+                builder: (context, value, child) => (globalController.favaroList.value.isEmpty)
                     ? noSong()
                     : favouriteBuilderFunction(),
               ),
@@ -108,7 +108,7 @@ class FavouriteScreen extends StatelessWidget {
     return ListView.builder(
       physics: const BouncingScrollPhysics(),
       itemBuilder: (context, index) {
-        SongInfo song = favaroList.value[index];
+        SongInfo song = globalController.favaroList.value[index];
         return Padding(
           padding: const EdgeInsets.only(top: 20),
           child: InkWell(
@@ -160,7 +160,7 @@ class FavouriteScreen extends StatelessWidget {
               ),
               trailing1: FavIcon(
                 currentSong: song,
-                isFav: favaroList.value.contains(song),
+                isFav: globalController.favaroList.value.contains(song),
               ),
               trailing2: PopupMenuButton(
                 shape: RoundedRectangleBorder(
@@ -199,7 +199,7 @@ class FavouriteScreen extends StatelessWidget {
           ),
         );
       },
-      itemCount: favaroList.value.length,
+      itemCount: globalController.favaroList.value.length,
     );
   }
 }

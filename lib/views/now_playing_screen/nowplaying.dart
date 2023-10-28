@@ -178,7 +178,7 @@ class NowPlayingScreen extends StatelessWidget {
                               ),
                               FavIcon(
                                 currentSong: nowPlayingController.currentsong,
-                                isFav: favaroList.value
+                                isFav: globalController.favaroList.value
                                     .contains(nowPlayingController.currentsong),
                               ),
                               IconButton(

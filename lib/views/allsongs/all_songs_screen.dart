@@ -114,7 +114,7 @@ class AllSongsScreen extends StatelessWidget {
                                   icon: FavIcon(
                                     currentSong:
                                         globalController.allsongs[index],
-                                    isFav: favaroList.value.contains(
+                                    isFav: globalController.favaroList.value.contains(
                                       globalController.allsongs[index],
                                     ),
                                   ),

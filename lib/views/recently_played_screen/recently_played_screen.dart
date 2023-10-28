@@ -115,7 +115,7 @@ class Recently extends StatelessWidget {
                                     trailing1: FavIcon(
                                       currentSong:
                                           globalController.allsongs[index],
-                                      isFav: favaroList.value.contains(
+                                      isFav:globalController. favaroList.value.contains(
                                           globalController.allsongs[index]),
                                     ),
                                     trailing2: PopupMenuButton(
