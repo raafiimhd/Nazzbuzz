@@ -1,10 +1,12 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:nazzbuzz/controller/settings_controller/settings_controller.dart';
 import 'package:nazzbuzz/utils/color.dart';
-import 'package:nazzbuzz/views/Settings/privacy_screen.dart/privacy.dart';
 import 'package:nazzbuzz/views/Settings/about_screen.dart/about_screen.dart';
 import 'package:nazzbuzz/views/Settings/feedback_screen.dart/feedback.dart';
+import 'package:nazzbuzz/views/Settings/privacy_screen.dart/privacy.dart';
 import 'package:nazzbuzz/views/Settings/reset/reset1.dart';
 import 'package:nazzbuzz/views/Settings/terms_screen.dart/terms.dart';
 
@@ -13,7 +15,16 @@ class SettingsMainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     SettingsController settingsController = Get.put(SettingsController());
+
+    // _onShare(context) async {
+    //   final box = context.findRenderObject() as RenderBox?;
+    //   await Share.share(
+    //       'https://play.google.com/store/apps/details?id=com.example.nazzbuzz',
+    //       subject: '',
+    //       sharePositionOrigin: box!.localToGlobal(Offset.zero) & box.size);
+    // }
 
     return Scaffold(
       backgroundColor: kBlack,
@@ -142,6 +153,7 @@ class SettingsMainScreen extends StatelessWidget {
               ),
               onTap: () {
                 settingsController.onShare(context);
+
               },
             ),
           ),

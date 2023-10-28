@@ -1,4 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
   
   <!-- Android 12 or below  -->
   <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
@@ -9,10 +10,12 @@
   <uses-permission android:name="android.permission.READ_MEDIA_VIDEO"/>
   <uses-permission android:name="android.permission.READ_MEDIA_AUDIO"/>
 
+  
+
     <application
         android:label="nazzbuzz"
         android:name="${applicationName}"
-        android:icon="@mipmap/ic_launcher">
+        android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
             android:exported="true"
